@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apurva Chavan • LLM/ML Engineer (Inference) for Reducto (W24)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020617;
+      --accent-1: #22c55e; /* green */
+      --accent-2: #38bdf8; /* cyan */
+      --accent-3: #eab308; /* amber */
+      --accent-4: #f97316; /* orange */
+      --card: #020617;
+      --card-soft: #020617;
+      --border: #1f2937;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --text-muted: #6b7280;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 26px 70px rgba(0, 0, 0, 0.8);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+      background:
+        radial-gradient(circle at 10% 0, rgba(59, 130, 246, 0.30), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.40), transparent 50%),
+        radial-gradient(circle at 0 100%, rgba(248, 250, 252, 0.03), transparent 60%),
+        radial-gradient(circle at 80% 100%, rgba(250, 204, 21, 0.22), transparent 60%),
+        var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 26px 16px 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-orb-wrap {
+      position: relative;
+    }
+
+    .brand-orb-glow {
+      position: absolute;
+      inset: -12px;
+      border-radius: 32px;
+      background: radial-gradient(circle at 30% 0, rgba(34, 197, 94, 0.55), transparent 60%);
+      opacity: 0.75;
+      filter: blur(14px);
+      z-index: 0;
+    }
+
+    .brand-orb {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 26px;
+      padding: 3px;
+      background: conic-gradient(from 130deg, #22c55e, #38bdf8, #eab308, #22c55e);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .brand-orb-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at 30% 0, rgba(34, 197, 94, 0.65), transparent 70%),
+        radial-gradient(circle at 100% 100%, rgba(8, 47, 73, 0.95), #020617 80%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      color: #e5e7eb;
+    }
+
+    .brand-text-top {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--text-muted);
+    }
+
+    .brand-text-name {
+      font-size: 1.14rem;
+      font-weight: 600;
+    }
+
+    .brand-text-role {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .brand-text-role span {
+      color: var(--accent-2);
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.78rem;
+    }
+
+    nav a {
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      color: var(--text-soft);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.75);
+      transition: background var(--fast), border-color var(--fast), color var(--fast), transform var(--fast), box-shadow var(--fast);
+    }
+
+    nav a:hover {
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.35), rgba(15, 23, 42, 0.98));
+      border-color: rgba(34, 197, 94, 0.9);
+      color: #e5e7eb;
+      transform: translateY(-1px);
+      box-shadow: 0 20px 50px rgba(22, 163, 74, 0.65);
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.25fr);
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-main {
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.40), transparent 70%),
+        radial-gradient(circle at 100% 100%, rgba(250, 204, 21, 0.32), transparent 65%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+        115deg,
+        rgba(148, 163, 184, 0.13) 1px,
+        transparent 1px
+      );
+      background-size: 18px 24px;
+      opacity: 0.4;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.72rem;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pill {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95));
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-pill.accent {
+      border-color: rgba(34, 197, 94, 0.95);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.5), rgba(15, 23, 42, 0.96));
+      color: #bbf7d0;
+    }
+
+    .hero-pill.highlight {
+      border-color: rgba(56, 189, 248, 0.9);
+      color: #e0f2fe;
+    }
+
+    .hero-title {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin: 4px 0 8px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #22c55e, #38bdf8, #eab308, #22c55e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    .hero-sub {
+      position: relative;
+      z-index: 1;
+      font-size: 0.96rem;
+      color: var(--text-soft);
+      max-width: 640px;
+    }
+
+    .hero-sub strong { color: var(--text-main); }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 720px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-col {
+      border-radius: 18px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background:
+        radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      padding: 9px 10px 8px;
+    }
+
+    .hero-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .hero-value {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .hero-tag {
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .hero-cta-row {
+      position: relative;
+      z-index: 1;
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px 15px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: background var(--fast), border-color var(--fast), color var(--fast), transform var(--fast), box-shadow var(--fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #38bdf8);
+      color: #052e16;
+      border-color: rgba(34, 197, 94, 0.95);
+      box-shadow: 0 20px 48px rgba(22, 163, 74, 0.75);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 26px 70px rgba(22, 163, 74, 0.9);
+    }
+
+    .btn-secondary {
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.98));
+      border-color: rgba(55, 65, 81, 0.95);
+      color: var(--text-soft);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(56, 189, 248, 0.9);
+      color: #e0f2fe;
+      transform: translateY(-1px);
+      box-shadow: 0 20px 48px rgba(8, 47, 73, 0.85);
+    }
+
+    .hero-note {
+      color: var(--text-muted);
+    }
+
+    .hero-note span { color: var(--accent-3); }
+
+    /* Right hero: latency & throughput console */
+    .hero-side {
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at 0 0, rgba(8, 47, 73, 0.8), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(22, 163, 74, 0.5), transparent 60%),
+        #020617;
+      border: 1px solid rgba(15, 23, 42, 0.95);
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.95);
+      padding: 13px 13px 11px;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      color: #e5e7eb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-side::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+        120deg,
+        rgba(15, 23, 42, 0.2) 1px,
+        transparent 1px
+      );
+      background-size: 22px 22px;
+      opacity: 0.6;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .hero-side-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .hero-side-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .hero-side-pill {
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(34, 197, 94, 0.95);
+      background: rgba(6, 78, 59, 0.9);
+      font-size: 0.7rem;
+      color: #bbf7d0;
+    }
+
+    .console {
+      position: relative;
+      z-index: 1;
+      border-radius: 20px;
+      border: 1px solid rgba(15, 23, 42, 0.95);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.35), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.35), transparent 55%),
+        #020617;
+      padding: 9px 10px 8px;
+    }
+
+    .console-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .console-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .console-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .console-body {
+      font-size: 0.72rem;
+      line-height: 1.55;
+      color: #e5e7eb;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    .kw { color: #38bdf8; }
+    .fn { color: #a5b4fc; }
+    .str { color: #eab308; }
+    .num { color: #22c55e; }
+    .cm { color: #9ca3af; }
+    .metric { color: #f97316; }
+
+    /* MAIN GRID */
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1.25fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 980px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    section {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+      padding: 14px 16px 12px;
+    }
+
+    h2 {
+      font-size: 0.9rem;
+      margin: 0 0 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    h2 span {
+      width: 26px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #22c55e, #38bdf8, #eab308, #f97316);
+    }
+
+    .section-body {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .section-body strong { color: var(--text-main); }
+
+    .subheading {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 6px;
+      font-size: 0.78rem;
+    }
+
+    .chip {
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-soft);
+    }
+
+    .chip.highlight {
+      border-color: rgba(34, 197, 94, 0.9);
+      color: #bbf7d0;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 0;
+      font-size: 0.87rem;
+    }
+
+    .list li {
+      margin-bottom: 6px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 0.72rem;
+      color: var(--accent-2);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      font-size: 0.84rem;
+    }
+
+    .project {
+      border-radius: 18px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      background:
+        radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+      padding: 9px 10px 9px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 720px) {
+      .project {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .project-title {
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .project-title span {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .project-tag {
+      padding: 2px 7px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .project-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 6px;
+      text-align: right;
+    }
+
+    .project-link {
+      padding: 5px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(56, 189, 248, 0.9);
+      color: #e0f2fe;
+      background: radial-gradient(circle at 0 0, rgba(8, 47, 73, 0.9), rgba(15, 23, 42, 0.98));
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background var(--fast), box-shadow var(--fast), border-color var(--fast), transform var(--fast);
+    }
+
+    .project-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(8, 47, 73, 0.9);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.7), rgba(15, 23, 42, 0.98));
+      border-color: #38bdf8;
+    }
+
+    .project-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* STACK */
+    .stack-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+
+    .stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .stack-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+    }
+
+    .stack-pill {
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-soft);
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    footer a {
+      color: var(--accent-2);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-orb-wrap">
+          <div class="brand-orb-glow"></div>
+          <div class="brand-orb"><div class="brand-orb-inner">AC</div></div>
+        </div>
+        <div>
+          <div class="brand-text-top">Tailored application • Reducto (W24)</div>
+          <div class="brand-text-name">Apurva Chavan</div>
+          <div class="brand-text-role">LLM/ML Engineer (Inference) • <span>Document parsing, latency & throughput</span></div>
+        </div>
+      </div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#fit">Inference fit</a>
+        <a href="#systems">Systems mindset</a>
+        <a href="#projects">Relevant work</a>
+        <a href="#stack">Stack</a>
+        <a href="https://github.com/Apurva1205" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="overview">
+      <div class="hero-main">
+        <div class="hero-pill-row">
+          <div class="hero-pill accent">LLM/ML Engineer • Inference</div>
+          <div class="hero-pill highlight">Python • PyTorch • Performance</div>
+          <div class="hero-pill">Docs → structure • PDFs → APIs</div>
+        </div>
+        <h1 class="hero-title">
+          Making <span>vision + LLM models</span> feel instant on messy, real‑world PDFs.
+        </h1>
+        <p class="hero-sub">
+          I’m a <strong>Python‑first ML engineer</strong> who enjoys squeezing every millisecond out of inference
+          paths while <strong>keeping accuracy and stability non‑negotiable</strong>. Reducto’s mission—turning
+          complex, layout‑heavy PDFs into reliable structured data—sits exactly where I love to work: at the
+          intersection of <strong>models, systems, and ruthless performance tuning</strong>.
+        </p>
+        <div class="hero-grid">
+          <div class="hero-col">
+            <div class="hero-label">Why Reducto resonates with me</div>
+            <div class="hero-value">
+              Most AI demos ignore the hard parts: <strong>non‑standard layouts, tables, graphs, mixed content</strong>.
+              Reducto tackles this head‑on with vision models, LLMs, and heuristics. I want to help push that
+              pipeline so that <strong>parsing becomes a solved problem</strong> for your customers.
+            </div>
+            <div class="hero-tags">
+              <span class="hero-tag">Unstructured → structured</span>
+              <span class="hero-tag">Real enterprise docs</span>
+              <span class="hero-tag">API‑first product</span>
+            </div>
+          </div>
+          <div class="hero-col">
+            <div class="hero-label">How I like to work</div>
+            <div class="hero-value">
+              <strong>Measure, then optimize</strong>: baselines, flame graphs, and tight feedback loops. I care about
+              <strong>p50 + p99 latency, throughput per GPU, and real‑world robustness</strong>—not just test‑set accuracy.
+            </div>
+            <div class="hero-tags">
+              <span class="hero-tag">Profiling‑driven dev</span>
+              <span class="hero-tag">Batching & streaming</span>
+              <span class="hero-tag">Shipping fast, safely</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-cta-row">
+          <a href="#fit" class="btn btn-primary">See how I map to the inference role →</a>
+          <a href="#projects" class="btn btn-secondary">Jump to performance‑minded projects</a>
+          <div class="hero-note">Core interest: <span>high‑throughput, low‑latency model serving for real docs.</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="hero-side-header">
+          <div class="hero-side-label">Live inference snapshot • red_pdf_v3</div>
+          <div class="hero-side-pill">GPU util & latency monitor</div>
+        </div>
+        <div class="console">
+          <div class="console-header">
+            <div class="console-dots">
+              <div class="console-dot"></div>
+              <div class="console-dot"></div>
+              <div class="console-dot"></div>
+            </div>
+            <div>run_id = <span class="str">"claims_batch_042"</span></div>
+          </div>
+          <div class="console-body">
+<span class="cm"># pseudo‑telemetry: one batch of complex PDFs</span>
+<span class="kw">from</span> reducto_infer <span class="kw">import</span> <span class="fn">profile_batch</span>
+
+metrics = <span class="fn">profile_batch</span>(
+  engine=<span class="str">"vllm"</span>,
+  model=<span class="str">"vision_layout_llm_v3"</span>,
+  batch_size=<span class="num">24</span>,
+  pdf_types=[<span class="str">"multi_col"</span>, <span class="str">"tables+graphs"</span>],
+)
+
+<span class="cm"># aggregated metrics (p50 / p95 / p99)</span>
+<span class="metric">throughput_docs_per_s</span>:   <span class="num">86.4</span>
+<span class="metric">latency_ms</span>:               p50=<span class="num">120</span>  p95=<span class="num">185</span>  p99=<span class="num">233</span>
+<span class="metric">gpu_util</span>:                 <span class="num">0.83</span>
+<span class="metric">failure_rate_layout_parse</span>: <span class="num">0.7</span><span class="str">"%"</span>
+
+<span class="cm"># next iteration → tune batching + streaming tables only</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <div>
+        <section id="fit">
+          <h2><span></span> Inference & optimization fit</h2>
+          <div class="section-body">
+            <div class="subheading">Production‑grade ML, not just notebooks</div>
+            <ul class="list">
+              <li>
+                Built <strong>end‑to‑end ML pipelines</strong> where models sit inside a larger system: ingestion,
+                preprocessing, model calls, post‑processing, and evaluation.
+              </li>
+              <li>
+                Comfortable taking a <strong>research‑style idea</strong> and turning it into a component with
+                configuration, logging, and tests so it can live in production.
+              </li>
+              <li>
+                Used to <strong>debugging quietly broken things</strong>: off‑by‑one batching, memory blow‑ups, and
+                distributions that drift in the wild.
+              </li>
+            </ul>
+
+            <div class="subheading">Python + PyTorch as home base</div>
+            <ul class="list">
+              <li>
+                Python is my primary language; my GitHub shows extensive work in
+                <strong>PyTorch, NumPy, and ML pipelines</strong> across NLP, vision, and time‑series problems.
+              </li>
+              <li>
+                I lean on vectorization, careful data layouts, and <strong>avoiding unnecessary Python overhead</strong>
+                to keep inference tight.
+              </li>
+            </ul>
+
+            <div class="subheading">Inference‑first mindset</div>
+            <ul class="list">
+              <li>
+                Think in terms of <strong>p50 / p99 latency, throughput, and cost</strong>, not just model accuracy.
+              </li>
+              <li>
+                Excited to deepen experience with <strong>modern inference stacks</strong> (vLLM, TGI, TensorRT‑LLM)
+                and build tooling around them for Reducto’s workloads.
+              </li>
+              <li>
+                Practical about <strong>trade‑offs</strong>: sometimes structured heuristics + good layouts beat another
+                1B parameters.
+              </li>
+            </ul>
+
+            <div class="chips">
+              <div class="chip highlight">Python & PyTorch</div>
+              <div class="chip">Batching & vectorization</div>
+              <div class="chip">Telemetry & metrics</div>
+              <div class="chip">Complex PDFs & tables</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="systems">
+          <h2><span></span> How I’d approach Reducto’s inference problems</h2>
+          <div class="section-body">
+            <div class="subheading">1. Establish clean baselines & metrics</div>
+            <ul class="list">
+              <li>
+                Work with the team to define <strong>core KPIs</strong>: docs/sec per GPU, p50/p95/p99 latency, failure
+                modes (e.g., table extraction, multi‑column confusion, graph parsing).
+              </li>
+              <li>
+                Build small but <strong>representative eval suites</strong> across your key verticals (insurance,
+                finance, healthcare) and wire them into CI or regular batch runs.
+              </li>
+            </ul>
+
+            <div class="subheading">2. Profile the full stack, not just the model</div>
+            <ul class="list">
+              <li>
+                Use Python + PyTorch profilers and system‑level tools to see where time is really going:
+                <strong>I/O, tokenization, layout parsing, model forward, post‑processing</strong>.
+              </li>
+              <li>
+                Attack the worst offenders with <strong>better batching, streaming, caching, and layout reuse</strong>.
+              </li>
+            </ul>
+
+            <div class="subheading">3. Harden the inference engine</div>
+            <ul class="list">
+              <li>
+                Integrate or tune modern inference backends (vLLM/TGI‑style) for
+                <strong>concurrent, batched requests</strong> with predictable latency.
+              </li>
+              <li>
+                Ensure the system degrades gracefully: fallbacks for giant docs, timeouts, and safe retries when
+                layout parsing fails.
+              </li>
+            </ul>
+
+            <div class="subheading">4. Build tools that make experimentation cheap</div>
+            <ul class="list">
+              <li>
+                Wrap experiments (new prompts, new layouts, new models) in <strong>simple config‑driven runners</strong>
+                so the team can quickly compare variants without bespoke code every time.
+              </li>
+              <li>
+                Surface results in <strong>lightweight dashboards or tables</strong> the whole team can look at and
+                reason about.
+              </li>
+            </ul>
+
+            <div class="subheading">5. Collaborate tightly with research</div>
+            <ul class="list">
+              <li>
+                Close the loop between <strong>research ideas and production behavior</strong> by testing new layouts or
+                model variants on real customer‑like docs early.
+              </li>
+              <li>
+                Share <strong>concise write‑ups</strong> of what worked, what didn’t, and why—so future experiments start
+                from a higher baseline.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <section id="projects">
+          <h2><span></span> Relevant projects & experience</h2>
+          <div class="section-body">
+            <p style="margin-top:0;margin-bottom:6px;">
+              Selected work from <code style="font-family:var(--font-mono);">Apurva1205</code> that reflects a
+              <strong>systems & performance</strong> way of thinking.
+            </p>
+            <div class="projects-grid">
+              <article class="project">
+                <div>
+                  <div class="project-title">Time-Series-Forecasting-For-Energy-Consumption <span>(throughput & scale)</span></div>
+                  <p class="project-desc">
+                    Forecasting energy demand over time—heavy emphasis on <strong>batching, sliding windows, and
+                    careful data preprocessing</strong>. Mirrors the discipline needed to handle large, streaming
+                    document workloads reliably.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">Time series</span>
+                    <span class="project-tag">PyTorch</span>
+                    <span class="project-tag">Pipelines</span>
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://github.com/Apurva1205/Time-Series-Forecasting-For-Energy-Consumption" target="_blank" rel="noopener">View repo ↗</a>
+                  <div class="project-note">Shows comfort with sequential data & scaling experiments.</div>
+                </div>
+              </article>
+
+              <article class="project">
+                <div>
+                  <div class="project-title">Stock-Price-Prediction <span>(noisy signals)</span></div>
+                  <p class="project-desc">
+                    Built models for financial time‑series, dealing with <strong>noisy, high‑variance signals</strong>.
+                    Similar to parsing complex PDFs where noise, edge cases, and outliers are the norm.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">ML</span>
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">Experimentation</span>
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://github.com/Apurva1205/Stock-Price-Prediction" target="_blank" rel="noopener">View repo ↗</a>
+                  <div class="project-note">Evidence of working with noisy, real‑world‑like data.</div>
+                </div>
+              </article>
+
+              <article class="project">
+                <div>
+                  <div class="project-title">AI-RESUME-ENHANCER <span>(LLM pipeline)</span></div>
+                  <p class="project-desc">
+                    Designed a system where LLMs compare resumes to job descriptions, highlight gaps, and
+                    recommend edits—built around <strong>prompt design, scoring, and evaluation</strong>. Similar
+                    thinking applies to <strong>evaluating extraction quality</strong> on parsed PDFs.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">LLMs</span>
+                    <span class="project-tag">Pipelines</span>
+                    <span class="project-tag">Evaluation mindset</span>
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://github.com/Apurva1205/AI-RESUME-ENHANCER" target="_blank" rel="noopener">View repo ↗</a>
+                  <div class="project-note">Shows end‑to‑end LLM integration experience.</div>
+                </div>
+              </article>
+
+              <article class="project">
+                <div>
+                  <div class="project-title">Tokenizers & Text-Classification <span>(under the hood)</span></div>
+                  <p class="project-desc">
+                    Projects around <strong>tokenization, embeddings, and classification models</strong>—demonstrating
+                    comfort looking below the high‑level APIs when performance or behavior requires it.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">PyTorch</span>
+                    <span class="project-tag">NLP internals</span>
+                    <span class="project-tag">Research‑style work</span>
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://github.com/Apurva1205/Tokenizers" target="_blank" rel="noopener">Tokenizers ↗</a>
+                  <a class="project-link" href="https://github.com/Apurva1205/Text-Classification" target="_blank" rel="noopener">Text‑Classification ↗</a>
+                  <div class="project-note">Signals comfort with language pipelines & efficiency.</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="stack">
+          <h2><span></span> Stack & strengths</h2>
+          <div class="section-body">
+            <p style="margin-top:0;">
+              I’m excited about joining a <strong>high‑agency, performance‑obsessed team</strong> and helping make
+              Reducto the default choice for parsing complex documents.
+            </p>
+            <div class="stack-rows">
+              <div class="stack-row">
+                <span class="stack-label">Core</span>
+                <span class="stack-pill">Python (expert)</span>
+                <span class="stack-pill">PyTorch / NumPy</span>
+                <span class="stack-pill">ML & DL</span>
+              </div>
+              <div class="stack-row">
+                <span class="stack-label">Inference</span>
+                <span class="stack-pill">Batching & streaming</span>
+                <span class="stack-pill">Latency & throughput focus</span>
+                <span class="stack-pill">Profiling & debugging</span>
+              </div>
+              <div class="stack-row">
+                <span class="stack-label">Data</span>
+                <span class="stack-pill">Tabular & time‑series</span>
+                <span class="stack-pill">Document‑like workloads</span>
+                <span class="stack-pill">Evaluation datasets</span>
+              </div>
+              <div class="stack-row">
+                <span class="stack-label">Mindset</span>
+                <span class="stack-pill">High ownership</span>
+                <span class="stack-pill">Ship fast, then refine</span>
+                <span class="stack-pill">Curious & systems‑oriented</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      Crafted by Apurva Chavan for the <strong>LLM/ML Engineer (Inference)</strong> role at Reducto (W24). GitHub:
+      <a href="https://github.com/Apurva1205" target="_blank" rel="noopener">Apurva1205</a>
+    </footer>
+  </div>
+</body>
+</html>
